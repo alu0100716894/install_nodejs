@@ -43,6 +43,40 @@
 
 <h2>
 <a id="breve-tutorial-de-uso-de-nodejs" class="anchor" href="#breve-tutorial-de-uso-de-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Breve tutorial de uso de nodejs</h2>
+
+      <p>Lo primero que debemos saber, es que tenemos dos formas de trabajar con nodejs:</p>
+
+      <ul>
+        <li>Como si fuera un intérprete, desde consola:
+            <IMG SRC="./images/inteprete.png">
+        </li>
+        <li>Creando un fichero con extensión .js y llamándolo desde console con `node "nombre del fichero".js` :
+          <IMG SRC="./images/ejemplo1.png">
+      </ul>
+
+
+<h2>
+<a id="ejemplo-de-un-servidor-muy-simple-con-nodejs" class="anchor" href="#ejemplo-de-un-servidor-muy-simple-con-nodejs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ejemplo de un servidor muy simple con nodejs</h2>
+
+    <p>Creamos un fichero .js y en el pondremos:</p>
+
+    <ol>
+      <li><code>var http = require('http');</code> para importar el módulo http.</li>
+      <li><code>var server = http.createServer();</code>cpara declarar e inicializar la variable server, donde creamos el server con una función del módulo que hemos importado.</li>
+      <li><code>function control(peticion, respuesta) {</code><br>
+        <code>respuesta.writeHead(200, {'content-type': 'text/plain'});</code><br>
+        <code>respuesta.write('Hola, Mundo!');</code><br>
+        <code>respuesta.end();</code><br>
+        <code>}</code><br>
+      Aquí creamos la la función que se encargará de manejar y controlar las peticiones y respuestas hacia y desde el servidor. Primero mandamos la cabezera con una confirmación correcta (el 200) y con el tipo de contenido que vamos a mandar. Y luego mandamos el mensaje de "Hola mundo", algo muy sencillito, pero donde se vea que nuestro server trabaja correctamente.</li>
+      <li><code>server.on('request',control);</code> para que el server se encienda y realize la función control cuando reciba una petición.</li>
+      <li><code>server.listen(8888);</code> para asignarle un puerto que este escuchando.</li>
+    </ol>
+
+    <p>Ahora, con todo esto en un fichero, vamos a consola, lo abrimos con node y luego podremos ir a nuestro navegador y abrir el puerto que le hayais puesto y ver como funciona, en mi caso la dirección sería
+      <code>localhost:8888</code><br>
+      <IMG SRC="./images/server.png"></p>
+
       </section>
     </div>
     <footer>
@@ -50,6 +84,6 @@
       <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-    
+
   </body>
 </html>
