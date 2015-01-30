@@ -1,4 +1,4 @@
-Practica 1
+Practica 0
 ==========
 
 ##Instalación de nodejs en Ubuntu
